@@ -1,0 +1,22 @@
+{
+  "name": "protractor_jasmine",
+  "version": "1.0.0",
+  "description": "First protractor test",
+  "main": "conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kotmatroskin92/protractor_test.git"
+  },
+  "author": "s.klybik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kotmatroskin92/protractor_test/issues"
+  },
+  "homepage": "https://github.com/kotmatroskin92/protractor_test#readme"
+}
