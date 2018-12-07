@@ -20,6 +20,11 @@ const customLevels = {
     }
 };
 
+const AllureStatus = {
+    PASSED: "Passed",
+    FAILED: "Failed"
+};
+
 addColors(customLevels.colors);
 
 class Logger {
@@ -42,6 +47,29 @@ class Logger {
                 new transports.File({filename: 'combined.log', format: format.simple(), level: "finish"})
             ]
         });
+    }
+
+    static logMessage(messageText, status = AllureStatus.PASSED) {
+        allure._allure.startStep(messageText);
+        allure._allure.endStep(status);
+    }
+
+    static logPromise(promise, message) {
+        return promise
+            .then(function (res) {
+                Logger.logMessage(message);
+                return res;
+            })
+            .catch(function (error) {
+                Logger.logMessage(message, AllureStatus.FAILED);
+                throw error;
+            })
+    }
+
+    static async logStep(messageText, func, status = AllureStatus.PASSED) {
+        allure._allure.startStep(messageText);
+        await func();
+        allure._allure.endStep(status);
     }
 }
 
