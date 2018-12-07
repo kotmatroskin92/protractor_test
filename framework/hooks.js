@@ -1,4 +1,5 @@
 let config = require('../config');
+let pageHelper = require('./helpers/pageHelper');
 
 let isFirst = true;
 
@@ -19,7 +20,7 @@ module.exports = {
                     return browser.driver.manage().timeouts().implicitlyWait(20000);
             }))
                 .then(function () {
-                    return browser.get(config.startUrl);
+                    return pageHelper.navigateTo(config.startUrl);
                 });
         });
     }

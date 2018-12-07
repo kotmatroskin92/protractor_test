@@ -4,6 +4,11 @@ const logger = require("../logger.js").logger;
 
 class PageHelper{
 
+    navigateTo(url) {
+        logger.info(`Navigate to: ${url}`);
+        return browser.get(url);
+    }
+
     waitForIsVisible(element) {
         return this.waitForCondition(EC.visibilityOf(element), "isDispalayed");
     }
