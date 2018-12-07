@@ -13,8 +13,8 @@ describe('Invalid password check', function() {
 
     it('Login', async function () {
         let signInForm = new SignInForm();
-        signInForm.typeLogin(envReader.getValue("testData.username"));
-        signInForm.typePassword(envReader.getValue("testData.password"));
+        signInForm.typeLogin(envReader.getValue("@testData.username"));
+        signInForm.typePassword(envReader.getValue("@testData.password"));
         signInForm.clickSubmit();
         expect(signInForm.isErrorHintDisplayed()).toEqual(true);
         browser.sleep(2000);

@@ -13,8 +13,12 @@ class EnvReader {
 
     getValue(path) {
         let pathArr = path.split('.');
-        var env = require(`../../env/${this.envName}/${pathArr.shift()}.json`);
-        var val= env[pathArr.shift()];
+        let dataFilename = pathArr.shift();
+        if (!dataFilename.startsWith("@")){
+            throw error
+        }
+        let env = require(`../../env/${this.envName}/${dataFilename.replace('@','')}.json`);
+        let val= env[pathArr.shift()];
         pathArr.forEach(key => val = val[key]);
         return val;
     }
