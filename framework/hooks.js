@@ -1,3 +1,4 @@
+'use strict';
 let config = require('../config');
 let pageHelper = require('./helpers/pageHelper');
 

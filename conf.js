@@ -21,9 +21,21 @@ exports.config = {
     onPrepare: () => {
         // jasmine.getEnv().addReporter(DescribeFailureReporter(jasmine.getEnv()));
         jasmine.getEnv().addReporter(new AllureReporter());
+        jasmine.getEnv().afterAll(function(done) {
+            console.log(jasmine.getEnv().currentSpec.results());
+            // if (!jasmine.getEnv().currentSpec.results().passed()) {
+
+                browser.takeScreenshot().then(function (png) {
+                    allure.createAttachment('Screenshot', function () {
+                        return new Buffer(png, 'base64')
+                    }, 'image/png')();
+                    done();
+                })
+            // }
+        });
     }
-        // browser.driver.manage().timeouts().implicitlyWait(20000);
-        // browser.waitForAngularEnabled(false);
+    // browser.driver.manage().timeouts().implicitlyWait(20000);
+    // browser.waitForAngularEnabled(false);
         // browser.manage().window().maximize();
     // }
 };

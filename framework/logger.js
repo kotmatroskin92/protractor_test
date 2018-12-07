@@ -49,12 +49,12 @@ class Logger {
         });
     }
 
-    static logMessage(messageText, status = AllureStatus.PASSED) {
+    logMessage(messageText, status = AllureStatus.PASSED) {
         allure._allure.startStep(messageText);
         allure._allure.endStep(status);
     }
 
-    static logPromise(promise, message) {
+    logPromise(promise, message) {
         return promise
             .then(function (res) {
                 Logger.logMessage(message);
@@ -66,7 +66,7 @@ class Logger {
             })
     }
 
-    static async logStep(messageText, func, status = AllureStatus.PASSED) {
+    async logStep(messageText, func, status = AllureStatus.PASSED) {
         allure._allure.startStep(messageText);
         await func();
         allure._allure.endStep(status);
