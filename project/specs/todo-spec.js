@@ -1,10 +1,13 @@
 let MainPage = require('../pages/mainPage');
 let SignInForm = require('../forms/signInForm');
+let addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
 
 
 describe('Invalid password check', function() {
+
+    addSuiteHooks();
     it('Open main page', async function () {
-        browser.get('https://mail.ru/');
+        // browser.get('https://mail.ru/');
         new MainPage();
     });
 
