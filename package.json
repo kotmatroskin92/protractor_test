@@ -4,7 +4,7 @@
   "description": "First protractor test",
   "main": "conf.js",
   "directories": {
-    "project/test": "project/test"
+    "project/specs": "project/specs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
