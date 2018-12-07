@@ -1,6 +1,6 @@
 const defaultWaitOptions = 1000;
 const EC = protractor.ExpectedConditions;
-const logger = require("./logger.js").logger;
+const logger = require("../logger.js").logger;
 
 class PageHelper{
     async getElementBySelector(selector, timeout = defaultWaitOptions) {
