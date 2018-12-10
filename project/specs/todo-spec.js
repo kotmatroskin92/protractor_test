@@ -2,6 +2,7 @@
 const MainPage = require('../pages/mainPage');
 const InboxPage = require('../pages/inboxPage');
 const SignInForm = require('../forms/signInForm');
+const LetterModel = require('../models/letterModel');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
 const envReader = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
@@ -10,6 +11,8 @@ const logger = require("../../framework/logger");
 describe('Draft message', function() {
 
     addSuiteHooks();
+    const letter = new LetterModel();
+
 
     it('Open main page', async function () {
         new MainPage();
@@ -26,11 +29,19 @@ describe('Draft message', function() {
         });
     });
 
-    it('Draft message', async function () {
-        logger.logStep('Step. Login with correct data', () => {
+    it('Compose message', async function () {
+        logger.logStep('Step. Compose and fill letter', () => {
             const inboxPage = new InboxPage();
             inboxPage.clickComposeLetter();
+            letter.setRndMessage();
+        });
+    });
+
+    it('Draft message', async function () {
+        logger.logStep('Step. Draft and check letter data', () => {
+            console.log(letter.subject);
             browser.sleep(2000);
+
         });
     });
 

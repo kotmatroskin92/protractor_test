@@ -20,8 +20,9 @@
   },
   "homepage": "https://github.com/kotmatroskin92/protractor_test#readme",
   "dependencies": {
-    "winston": "^3.1.0",
     "allure-commandline": "^2.5.0",
-    "jasmine-allure-reporter": "^1.0.2"
+    "btoa": "^1.2.1",
+    "jasmine-allure-reporter": "^1.0.2",
+    "winston": "^3.1.0"
   }
 }
