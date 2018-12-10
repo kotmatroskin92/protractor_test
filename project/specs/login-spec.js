@@ -30,7 +30,6 @@ describe('Invalid password check', function() {
                     signInForm.typePassword(password);
                     signInForm.clickSubmit();
                     expect(signInForm.isErrorHintDisplayed()).toEqual(true);
-                    browser.sleep(1500);
                 });
             });
         });
