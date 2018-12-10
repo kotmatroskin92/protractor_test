@@ -2,6 +2,7 @@
 const MainPage = require('../pages/mainPage');
 const InboxPage = require('../pages/inboxPage');
 const SignInForm = require('../forms/signInForm');
+const ComposeForm = require('../forms/composeForm');
 const LetterModel = require('../models/letterModel');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
 const envReader = require('../../framework/helpers/envReader');
@@ -34,6 +35,11 @@ describe('Draft message', function() {
             const inboxPage = new InboxPage();
             inboxPage.clickComposeLetter();
             letter.setRndMessage();
+            const composeForm = new ComposeForm();
+            composeForm.typeLetter(letter);
+            console.log(composeForm.getToEmail());
+            // console.log(composeForm.getSubject());
+
         });
     });
 
