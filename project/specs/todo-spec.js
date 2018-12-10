@@ -1,3 +1,4 @@
+'use strict';
 let MainPage = require('../pages/mainPage');
 let SignInForm = require('../forms/signInForm');
 let addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
@@ -7,20 +8,32 @@ const logger = require("../../framework/logger");
 
 describe('Invalid password check', function() {
 
-    addSuiteHooks();
-    it('Open main page', async function () {
-        new MainPage();
-    });
+    checkInvalidLogin("@testData.login.valid.username", "@testData.login.invalid.password");
+    checkInvalidLogin("@testData.login.invalid.username", "@testData.login.invalid.password");
 
-    it('Login', async function () {
-        logger.logStep('Step. Login with incorrect username and password', () => {
-            let signInForm = new SignInForm();
-            signInForm.typeLogin(envReader.getValue("@testData.username"));
-            signInForm.typePassword(envReader.getValue("@testData.password"));
-            signInForm.clickSubmit();
-            expect(signInForm.isErrorHintDisplayed()).toEqual(true);
-            browser.sleep(2000);
+    function checkInvalidLogin(loginPath, passPath) {
+
+        let login = envReader.getValue(loginPath);
+        let password = envReader.getValue(passPath);
+
+        describe(`With login: ${login} and password: ${password}`, function() {
+
+            addSuiteHooks();
+            it('Open main page', async function () {
+                new MainPage();
+            });
+
+            it('Login', async function () {
+                logger.logStep('Step. Login with incorrect data', () => {
+                    let signInForm = new SignInForm();
+                    signInForm.typeLogin(login);
+                    signInForm.typePassword(password);
+                    signInForm.clickSubmit();
+                    expect(signInForm.isErrorHintDisplayed()).toEqual(true);
+                    browser.sleep(1500);
+                });
+            });
         });
-    });
+    }
 });
 

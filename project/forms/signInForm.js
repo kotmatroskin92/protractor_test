@@ -1,4 +1,4 @@
-let pageHelper = require('../../framework/helpers/pageHelper.js');
+let pageHelper = require('../../framework/helpers/pageHelper');
 let BasePage = require('../../framework/basePage');
 
 class SignInForm extends BasePage{
