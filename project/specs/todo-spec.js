@@ -1,8 +1,8 @@
 'use strict';
-let MainPage = require('../pages/mainPage');
-let SignInForm = require('../forms/signInForm');
-let addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
-let envReader = require('../../framework/helpers/envReader');
+const MainPage = require('../pages/mainPage');
+const SignInForm = require('../forms/signInForm');
+const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
+const envReader = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
 
 
@@ -25,7 +25,7 @@ describe('Invalid password check', function() {
 
             it('Login', async function () {
                 logger.logStep('Step. Login with incorrect data', () => {
-                    let signInForm = new SignInForm();
+                    const signInForm = new SignInForm();
                     signInForm.typeLogin(login);
                     signInForm.typePassword(password);
                     signInForm.clickSubmit();

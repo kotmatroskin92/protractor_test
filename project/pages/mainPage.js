@@ -1,4 +1,5 @@
-let BasePage = require('../../framework/basePage');
+'use strict';
+const BasePage = require('../../framework/basePage');
 
 class MainPage extends BasePage{
     constructor() {

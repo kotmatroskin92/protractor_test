@@ -1,5 +1,5 @@
-let config = require('./config');
-let AllureReporter = require('jasmine-allure-reporter');
+const config = require('./config');
+const AllureReporter = require('jasmine-allure-reporter');
 
 let addScreenShots = new function () {
     this.specDone = function (result) {

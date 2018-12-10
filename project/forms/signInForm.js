@@ -1,5 +1,6 @@
-let pageHelper = require('../../framework/helpers/pageHelper');
-let BasePage = require('../../framework/basePage');
+'use strict';
+const pageHelper = require('../../framework/helpers/pageHelper');
+const BasePage = require('../../framework/basePage');
 
 class SignInForm extends BasePage{
     constructor() {

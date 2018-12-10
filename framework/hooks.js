@@ -1,6 +1,6 @@
 'use strict';
-let config = require('../config');
-let pageHelper = require('./helpers/pageHelper');
+const config = require('../config');
+const pageHelper = require('./helpers/pageHelper');
 
 let isFirst = true;
 

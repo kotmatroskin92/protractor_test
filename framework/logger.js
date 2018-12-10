@@ -1,3 +1,4 @@
+'use strict';
 const {createLogger, format, transports, addColors} = require('winston');
 const {combine, timestamp, printf} = format;
 
