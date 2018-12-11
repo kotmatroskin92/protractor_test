@@ -11,6 +11,7 @@ class ComposeForm extends BasePage{
         this.txbMessage = element(by.id("tinymce"));
         this.btnSaveDraft = element(by.xpath("//div[contains(@id,'toolbar')]//div[@data-name='saveDraft']"));
         this.lblSaveStatus = element(by.xpath("//div[@data-mnemo='saveStatus']//span[@class='time']"));
+        this.iFrameComposeEditor = element(by.xpath("//iframe[contains(@id, 'composeEditor_ifr')]"));
     }
 
 
@@ -19,17 +20,26 @@ class ComposeForm extends BasePage{
     }
 
     typeInSubject(subject) {
-        this.txbSubject.sendKeys(subject);
-    }
+        this.txbSubject.clear().sendKeys(subject);
+     }
+
+    // typeInMessage(text) {
+    //     pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
+    //     this.txbMessage.clear().sendKeys(text);
+    //     pageHelper.switchToDefaultContent();
+    // }
+
 
     typeInMessage(text) {
-        this.txbMessage.sendKeys(text);
+        pageHelper.doActionInFrame(this.iFrameComposeEditor, function() {
+            this.txbMessage.clear().sendKeys(text);
+        }.bind(this))
     }
 
     typeLetter(letter) {
         this.typeInTo(letter.toEmail);
         this.typeInSubject(letter.subject);
-        // this.typeInMessage(letter.message);
+        this.typeInMessage(letter.message);
     }
 
     saveDraft() {

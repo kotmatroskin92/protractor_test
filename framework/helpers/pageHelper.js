@@ -22,5 +22,19 @@ class PageHelper{
             return false;
         });
     }
+
+    switchToFrameByElement(element) {
+        browser.switchTo().frame(element.getWebElement());
+    }
+
+    switchToDefaultContent() {
+        browser.switchTo().defaultContent();
+    }
+
+    doActionInFrame(element, callback) {
+        this.switchToFrameByElement(element);
+        callback();
+        this.switchToDefaultContent()
+    }
 }
 module.exports = new PageHelper();

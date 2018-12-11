@@ -50,6 +50,7 @@ describe('Draft message', function() {
             new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
             const lettersForm = new LettersForm();
             expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
+            lettersForm.clickLetter(letter);
             browser.sleep(3000);
         });
     });
