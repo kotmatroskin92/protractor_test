@@ -37,9 +37,7 @@ describe('Draft message', function() {
             letter.setRndMessage();
             const composeForm = new ComposeForm();
             composeForm.typeLetter(letter);
-            console.log(composeForm.getToEmail());
-            // console.log(composeForm.getSubject());
-
+            composeForm.clickSaveDraft();
         });
     });
 

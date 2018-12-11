@@ -7,6 +7,7 @@ class ComposeForm extends BasePage{
         this.txbTo = element(by.xpath("//textarea[@data-original-name='To']"));
         this.txbSubject = element(by.xpath("//input[@name='Subject']"));
         this.txbMessage = element(by.id("tinymce"));
+        this.btnSaveDraft = element(by.xpath("//div[contains(@id,'toolbar')]//div[@data-name='saveDraft']"));
     }
 
 
@@ -28,18 +29,8 @@ class ComposeForm extends BasePage{
         // this.typeInMessage(letter.message);
     }
 
-    getToEmail() {
-        let email = '';
-        this.txbSubject.getText().then(function (text) {
-            email = text;
-        });
-        return email
-    }
-
-    getSubject() {
-        return this.txbSubject.getText().then(function (text) {
-            return text;
-        });
+    clickSaveDraft() {
+        this.btnSaveDraft.click();
     }
 }
 
