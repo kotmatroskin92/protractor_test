@@ -1,5 +1,7 @@
 'use strict';
 const BasePage = require("../../framework/basePage");
+const pageHelper = require('../../framework/helpers/pageHelper');
+
 
 class ComposeForm extends BasePage{
     constructor() {
@@ -8,6 +10,7 @@ class ComposeForm extends BasePage{
         this.txbSubject = element(by.xpath("//input[@name='Subject']"));
         this.txbMessage = element(by.id("tinymce"));
         this.btnSaveDraft = element(by.xpath("//div[contains(@id,'toolbar')]//div[@data-name='saveDraft']"));
+        this.lblSaveStatus = element(by.xpath("//div[@data-mnemo='saveStatus']//span[@class='time']"));
     }
 
 
@@ -29,8 +32,9 @@ class ComposeForm extends BasePage{
         // this.typeInMessage(letter.message);
     }
 
-    clickSaveDraft() {
+    saveDraft() {
         this.btnSaveDraft.click();
+        pageHelper.waitForIsVisible(this.lblSaveStatus)
     }
 }
 

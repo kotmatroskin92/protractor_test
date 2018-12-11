@@ -39,7 +39,7 @@ describe('Draft message', function() {
             letter.setRndMessage();
             const composeForm = new ComposeForm();
             composeForm.typeLetter(letter);
-            composeForm.clickSaveDraft();
+            composeForm.saveDraft();
         });
     });
 
@@ -47,7 +47,6 @@ describe('Draft message', function() {
         logger.logStep('Step. Navigate to draft and check letter data', () => {
             console.log(letter.subject);
             const folderNavigateForm = new FolderNavigateForm();
-            browser.sleep(1000);
             folderNavigateForm.navigateTo(navFolderEnum.DRAFT);
             browser.sleep(3000);
         });
