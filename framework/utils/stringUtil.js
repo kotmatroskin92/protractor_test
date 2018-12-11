@@ -3,9 +3,9 @@ const btoa = require('btoa');
 
 class StringUtil {
 
-    getRndString(charCounter=5) {
+    static getRndString(charCounter=7) {
         return btoa(Math.random()).substr(0, charCounter)
     }
 }
 
-module.exports = new StringUtil();
+module.exports = StringUtil;

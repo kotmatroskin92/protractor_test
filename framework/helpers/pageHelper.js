@@ -11,7 +11,7 @@ class PageHelper{
     }
 
     waitForIsVisible(element) {
-        return this.waitForCondition(EC.visibilityOf(element), "isDispalayed");
+        return this.waitForCondition(EC.visibilityOf(element), `${element.locator().value} isDispalayed`);
     }
 
     waitForCondition(condition, msg='', timeout=conditionTime) {

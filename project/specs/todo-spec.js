@@ -4,6 +4,7 @@ const InboxPage = require('../pages/inboxPage');
 const SignInForm = require('../forms/signInForm');
 const ComposeForm = require('../forms/composeForm');
 const FolderNavigateForm = require('../forms/folderNavigateForm');
+const LettersForm = require('../forms/lettersForm');
 const LetterModel = require('../models/letterModel');
 const navFolderEnum = require('../enums/NavFolderEnum');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
@@ -46,8 +47,9 @@ describe('Draft message', function() {
     it('Draft message', async function () {
         logger.logStep('Step. Navigate to draft and check letter data', () => {
             console.log(letter.subject);
-            const folderNavigateForm = new FolderNavigateForm();
-            folderNavigateForm.navigateTo(navFolderEnum.DRAFT);
+            new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
+            const lettersForm = new LettersForm();
+            expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
             browser.sleep(3000);
         });
     });

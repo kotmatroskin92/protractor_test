@@ -1,5 +1,5 @@
 'use strict';
-const stringUtil = require('../../framework/utils/stringUtil');
+const StringUtil = require('../../framework/utils/stringUtil');
 
 class LetterModel {
     constructor() {
@@ -9,10 +9,9 @@ class LetterModel {
     }
 
     setRndMessage() {
-        this.subject += stringUtil.getRndString();
-        this.message += stringUtil.getRndString();
+        this.subject += StringUtil.getRndString();
+        this.message += StringUtil.getRndString();
     }
-
 }
 
 module.exports = LetterModel;
