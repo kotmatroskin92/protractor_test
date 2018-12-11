@@ -15,9 +15,7 @@ class PageHelper{
     }
 
     waitForCondition(condition, msg='', timeout=conditionTime) {
-        return browser.wait(condition, timeout).then(function () {
-            return true;
-        }).catch(function (e) {
+        return browser.wait(condition, timeout).then(() => { return true }).catch((e) => {
             logger.fail(`Element ${msg} condition not found`);
             return false;
         });

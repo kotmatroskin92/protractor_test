@@ -7,9 +7,9 @@ class BasePage {
 
     constructor(element, pageName) {
         this.element = element;
-        browser.wait(EC.presenceOf(this.element), conditionTime).then(function () {
+        browser.wait(EC.presenceOf(this.element), conditionTime).then(() => {
             logger.info(`${pageName} was opened`);
-        }).catch(function (e) {
+        }).catch((e) => {
             logger.fail(`${pageName} locator ${this.element} was not found`);
             throw error;
         });
