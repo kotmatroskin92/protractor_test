@@ -36,6 +36,20 @@ class ComposeForm extends BasePage{
         }.bind(this))
     }
 
+    // async getMessageText() {
+    //     return await pageHelper.doActionInFrame(this.iFrameComposeEditor, function () {
+    //         return this.txbMessage.getText();
+    //     }.bind(this));
+    // }
+
+    async getMessageText() {
+        pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
+        const text = await this.txbMessage.getText();
+        pageHelper.switchToDefaultContent();
+        return text;
+    }
+
+
     typeLetter(letter) {
         this.typeInTo(letter.toEmail);
         this.typeInSubject(letter.subject);

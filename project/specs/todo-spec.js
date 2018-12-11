@@ -45,12 +45,19 @@ describe('Draft message', function() {
     });
 
     it('Draft message', async function () {
-        logger.logStep('Step. Navigate to draft and check letter data', () => {
-            console.log(letter.subject);
+        logger.logStep('Step. Navigate to draft and check letter', () => {
             new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
             const lettersForm = new LettersForm();
             expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
             lettersForm.clickLetter(letter);
+            browser.sleep(3000);
+        });
+    });
+
+    it('Compose message', async function () {
+        logger.logStep('Step. Check compose letter data', async () => {
+            const composeForm = new ComposeForm();
+            expect(await composeForm.getMessageText()).toEqual(letter.message);
             browser.sleep(3000);
         });
     });
