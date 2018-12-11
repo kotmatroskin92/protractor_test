@@ -3,7 +3,7 @@ const BasePage = require("../../framework/basePage");
 
 class ComposeForm extends BasePage{
     constructor() {
-        super(element(by.id("b-compose")), "Compose letter form ");
+        super(element(by.id("b-compose")), "Compose letter form");
         this.txbTo = element(by.xpath("//textarea[@data-original-name='To']"));
         this.txbSubject = element(by.xpath("//input[@name='Subject']"));
         this.txbMessage = element(by.id("tinymce"));

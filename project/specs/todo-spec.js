@@ -3,7 +3,9 @@ const MainPage = require('../pages/mainPage');
 const InboxPage = require('../pages/inboxPage');
 const SignInForm = require('../forms/signInForm');
 const ComposeForm = require('../forms/composeForm');
+const FolderNavigateForm = require('../forms/folderNavigateForm');
 const LetterModel = require('../models/letterModel');
+const navFolderEnum = require('../enums/NavFolderEnum');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
 const envReader = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
@@ -42,11 +44,12 @@ describe('Draft message', function() {
     });
 
     it('Draft message', async function () {
-        logger.logStep('Step. Draft and check letter data', () => {
+        logger.logStep('Step. Navigate to draft and check letter data', () => {
             console.log(letter.subject);
-            browser.sleep(2000);
-
+            const folderNavigateForm = new FolderNavigateForm();
+            browser.sleep(1000);
+            folderNavigateForm.navigateTo(navFolderEnum.DRAFT);
+            browser.sleep(3000);
         });
     });
-
 });
