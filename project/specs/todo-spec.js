@@ -17,7 +17,6 @@ describe('Draft message', function() {
     addSuiteHooks();
     const letter = new LetterModel();
 
-
     it('Open main page', async function () {
         new MainPage();
     });
@@ -50,7 +49,6 @@ describe('Draft message', function() {
             const lettersForm = new LettersForm();
             expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
             lettersForm.clickLetter(letter);
-            browser.sleep(3000);
         });
     });
 

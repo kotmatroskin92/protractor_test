@@ -14,7 +14,6 @@ class ComposeForm extends BasePage{
         this.iFrameComposeEditor = element(by.xpath("//iframe[contains(@id, 'composeEditor_ifr')]"));
     }
 
-
     typeInTo(email) {
         this.txbTo.sendKeys(email);
     }
@@ -22,13 +21,6 @@ class ComposeForm extends BasePage{
     typeInSubject(subject) {
         this.txbSubject.clear().sendKeys(subject);
      }
-
-    // typeInMessage(text) {
-    //     pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
-    //     this.txbMessage.clear().sendKeys(text);
-    //     pageHelper.switchToDefaultContent();
-    // }
-
 
     typeInMessage(text) {
         pageHelper.doActionInFrame(this.iFrameComposeEditor, function() {
@@ -43,12 +35,11 @@ class ComposeForm extends BasePage{
     // }
 
     async getMessageText() {
-        pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
+        await pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
         const text = await this.txbMessage.getText();
-        pageHelper.switchToDefaultContent();
+        await pageHelper.switchToDefaultContent();
         return text;
     }
-
 
     typeLetter(letter) {
         this.typeInTo(letter.toEmail);

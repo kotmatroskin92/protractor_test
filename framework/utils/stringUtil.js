@@ -1,11 +1,8 @@
 'use strict';
 const btoa = require('btoa');
 
-class StringUtil {
+const getRndString = (charCounter=7) => {
+    return btoa(Math.random()).substr(0, charCounter);
+};
 
-    static getRndString(charCounter=7) {
-        return btoa(Math.random()).substr(0, charCounter)
-    }
-}
-
-module.exports = StringUtil;
+module.exports = getRndString;

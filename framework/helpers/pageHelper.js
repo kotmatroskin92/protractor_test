@@ -22,11 +22,11 @@ class PageHelper{
     }
 
     switchToFrameByElement(element) {
-        browser.switchTo().frame(element.getWebElement());
+        return browser.switchTo().frame(element.getWebElement());
     }
 
     switchToDefaultContent() {
-        browser.switchTo().defaultContent();
+        return browser.switchTo().defaultContent();
     }
 
     doActionInFrame(element, callback) {
