@@ -2,7 +2,6 @@
 const BasePage = require("../../framework/basePage");
 const pageHelper = require('../../framework/helpers/pageHelper');
 
-
 class ComposeForm extends BasePage{
     constructor() {
         super($("#b-compose"), "Compose letter form");
@@ -25,15 +24,14 @@ class ComposeForm extends BasePage{
 
     typeInMessage(text) {
         pageHelper.doActionInFrame(this.iFrameComposeEditor, function() {
-            this.txbMessage.clear().sendKeys(text);
+            return this.txbMessage.clear().sendKeys(text);
         }.bind(this))
     }
 
     async getMessageText() {
-        await pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
-        const text = await this.txbMessage.getText();
-        await pageHelper.switchToDefaultContent();
-        return text;
+        return await pageHelper.doActionInFrame(this.iFrameComposeEditor, function() {
+            return this.txbMessage.getText();
+        }.bind(this));
     }
 
     async getSubject() {

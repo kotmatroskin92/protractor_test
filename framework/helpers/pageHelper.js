@@ -31,10 +31,11 @@ class PageHelper{
         return browser.switchTo().defaultContent();
     }
 
-    doActionInFrame(element, callback) {
-        this.switchToFrameByElement(element);
-        callback();
-        this.switchToDefaultContent()
+    async doActionInFrame(element, callback) {
+        await this.switchToFrameByElement(element);
+        let a = await callback();
+        await this.switchToDefaultContent();
+        return a
     }
 }
 module.exports = new PageHelper();
