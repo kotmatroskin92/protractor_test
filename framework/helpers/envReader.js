@@ -1,4 +1,5 @@
 'use strict';
+const logger = require("../logger").logger;
 const pathDelimiter = '.';
 const pathChar = '@';
 let configFilePath = '../../config.json';
@@ -10,10 +11,12 @@ function readENV(filePath=configFilePath){
     }
 
 function getEnvValue(path) {
+    logger.info(`Get value with path: ${path}`);
     let pathArr = path.split(pathDelimiter);
     let dataFilename = pathArr.shift();
     if (!dataFilename.startsWith(pathChar)){
-        throw error
+        logger.fail("Env path is not start with @");
+        throw new Error("EnvPathError");
     }
     let env = require(`../../env/${envName}/${dataFilename.replace(pathChar,'')}.json`);
     let val= env[pathArr.shift()];

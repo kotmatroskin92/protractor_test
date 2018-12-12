@@ -52,7 +52,7 @@ class ComposeForm extends BasePage{
     }
 
     saveDraft() {
-        this.btnSaveDraft.click();
+        return this.btnSaveDraft.click();
     }
 
     isLetterSaveToDraft() {

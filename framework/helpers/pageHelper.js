@@ -1,7 +1,7 @@
 'use strict';
 const conditionTime = require('../../config').conditionTime;
 const EC = protractor.ExpectedConditions;
-const logger = require("../logger.js").logger;
+const logger = require("../logger").logger;
 
 class PageHelper{
 
@@ -22,10 +22,12 @@ class PageHelper{
     }
 
     switchToFrameByElement(element) {
+        logger.info(`Switch to frame: ${element.locator().value}`);
         return browser.switchTo().frame(element.getWebElement());
     }
 
     switchToDefaultContent() {
+        logger.info("Switch to DefaultContent");
         return browser.switchTo().defaultContent();
     }
 

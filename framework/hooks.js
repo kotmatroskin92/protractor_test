@@ -16,9 +16,9 @@ module.exports = {
             browser.manage().window().maximize()
                 .then(function () {
                     isFirst = false;
-                    return browser.waitForAngularEnabled(false)
+                    return browser.waitForAngularEnabled(config.isWaitForAngular)
                 }).then((function () {
-                    return browser.driver.manage().timeouts().implicitlyWait(20000);
+                    return browser.driver.manage().timeouts().implicitlyWait(config.implicitlyWait);
             }))
                 .then(function () {
                     return pageHelper.navigateTo(config.startUrl);

@@ -31,16 +31,7 @@ exports.config = {
     },
     getPageTimeout: config.pageLoadTime,
     onPrepare: () => {
-        // jasmine.getEnv().addReporter(DescribeFailureReporter(jasmine.getEnv()));
         jasmine.getEnv().addReporter(new AllureReporter());
         jasmine.getEnv().addReporter(addScreenShots);
-        // jasmine.getEnv().afterAll(function(done) {
-                // browser.takeScreenshot().then(function (png) {
-                //     allure.createAttachment('Screenshot', function () {
-                //         return new Buffer(png, 'base64')
-                //     }, 'image/png')();
-                //     done();
-                // })
-        // });
     }
 };

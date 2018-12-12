@@ -18,7 +18,7 @@ class LettersForm extends BasePage{
     }
 
     clickLetter(letter) {
-        this.getLetterElement(letter).click();
+        return this.getLetterElement(letter).click();
     }
 }
 

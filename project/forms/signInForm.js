@@ -8,12 +8,11 @@ class SignInForm extends BasePage{
         this.txdLogin = element(by.id("mailbox:login"));
         this.txdPassword = element(by.id("mailbox:password"));
         this.lblLoginError = element(by.id("mailbox:error"));
-        // this.btnLogin = element($('.o-control[type="submit"]'));
         this.btnSubmit = element(by.id("mailbox:submit"));
     }
 
     typePassword(password) {
-        this.txdPassword.sendKeys(password);
+        return this.txdPassword.sendKeys(password);
     }
 
     typeLogin(login) {
