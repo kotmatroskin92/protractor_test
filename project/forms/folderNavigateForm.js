@@ -8,7 +8,7 @@ class FolderNavigateForm extends BasePage{
     }
 
     navigateTo(navFolderItem) {
-        element(by.xpath(`${navFoldersLocator}//a[contains(@href, '${navFolderItem}')]`)).click();
+        return element(by.xpath(`${navFoldersLocator}//a[contains(@href, '${navFolderItem}')]`)).click();
     }
 }
 

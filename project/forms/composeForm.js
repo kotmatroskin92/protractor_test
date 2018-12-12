@@ -41,6 +41,10 @@ class ComposeForm extends BasePage{
         return text;
     }
 
+    async getSubject() {
+        return await this.txbSubject.getAttribute('value')
+    }
+
     typeLetter(letter) {
         this.typeInTo(letter.toEmail);
         this.typeInSubject(letter.subject);
