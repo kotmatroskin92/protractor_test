@@ -6,7 +6,7 @@ The framework tests functionality of [Mail.ru](https://mail.ru/) website.
 
 # Run test
 
-* Use <b>npm start-webdriver</b> to update and start webdriver-manager service
+* Use <b>npm run start-webdriver</b> to update and start webdriver-manager service
 * Use <b>npm test</b> to run tests
 
 ## Implemented tests
