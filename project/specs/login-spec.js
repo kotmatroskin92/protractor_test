@@ -2,7 +2,7 @@
 const MainPage = require('../pages/mainPage');
 const SignInForm = require('../forms/signInForm');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
-const getEnvValue = require('../../framework/helpers/envReader');
+const { getEnvValue } = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
 
 

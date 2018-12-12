@@ -8,7 +8,7 @@ const LettersForm = require('../forms/lettersForm');
 const LetterModel = require('../models/letterModel');
 const navFolderEnum = require('../enums/NavFolderEnum');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
-const getEnvValue = require('../../framework/helpers/envReader');
+const { getEnvValue } = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
 
 

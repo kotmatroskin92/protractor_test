@@ -24,4 +24,10 @@ function getEnvValue(path) {
     return val;
 }
 
-module.exports = getEnvValue;
+function getStartUrl() {
+    let config = require(`../../env/${envName}/config.json`);
+    console.log(config.startUrl);
+    return config.startUrl;
+}
+
+module.exports = { getEnvValue, getStartUrl };

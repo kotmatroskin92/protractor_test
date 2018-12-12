@@ -1,5 +1,6 @@
 'use strict';
 const config = require('../config');
+const { getStartUrl } = require('./helpers/envReader');
 const pageHelper = require('./helpers/pageHelper');
 
 let isFirst = true;
@@ -21,7 +22,7 @@ module.exports = {
                     return browser.driver.manage().timeouts().implicitlyWait(config.implicitlyWait);
             }))
                 .then(function () {
-                    return pageHelper.navigateTo(config.startUrl);
+                    return pageHelper.navigateTo(getStartUrl());
                 });
         });
     }

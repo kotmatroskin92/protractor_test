@@ -15,7 +15,7 @@ let addScreenShots = new function () {
 
 exports.config = {
     framework: 'jasmine',
-    seleniumAddress: 'http://localhost:4444/wd/hub',
+    seleniumAddress: config.seleniumAddress,
     specs: ['./project/specs/todo-spec.js'],
     capabilities: {
         browserName: config.browserName,
