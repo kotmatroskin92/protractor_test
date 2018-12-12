@@ -4,7 +4,7 @@ const navFoldersLocator = "//div[@id='b-nav_folders']";
 
 class FolderNavigateForm extends BasePage{
     constructor() {
-        super(element(by.xpath(navFoldersLocator)), "Navigate to folders form");
+        super(element(by.xpath(navFoldersLocator)), "Navigate folders form");
     }
 
     navigateTo(navFolderItem) {

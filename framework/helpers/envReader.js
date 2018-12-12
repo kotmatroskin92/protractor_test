@@ -11,7 +11,6 @@ function readENV(filePath=configFilePath){
     }
 
 function getEnvValue(path) {
-    logger.info(`Get value with path: ${path}`);
     let pathArr = path.split(pathDelimiter);
     let dataFilename = pathArr.shift();
     if (!dataFilename.startsWith(pathChar)){
@@ -21,6 +20,7 @@ function getEnvValue(path) {
     let env = require(`../../env/${envName}/${dataFilename.replace(pathChar,'')}.json`);
     let val= env[pathArr.shift()];
     pathArr.forEach(key => val = val[key]);
+    logger.info(`Get value from env: ${val}`);
     return val;
 }
 
