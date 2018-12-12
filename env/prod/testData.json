@@ -1,0 +1,12 @@
+{
+  "login": {
+    "valid": {
+      "username": "53adminmail",
+      "password": "1"
+    },
+    "invalid": {
+      "username": "53admin",
+      "password": "1"
+    }
+  }
+}
