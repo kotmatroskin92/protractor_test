@@ -8,7 +8,7 @@ const LettersForm = require('../forms/lettersForm');
 const LetterModel = require('../models/letterModel');
 const navFolderEnum = require('../enums/NavFolderEnum');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
-const envReader = require('../../framework/helpers/envReader');
+const getEnvValue = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
 
 
@@ -23,8 +23,8 @@ describe('Draft message', function() {
 
     it('Login', async function () {
         logger.logStep('Step. Login with correct data', () => {
-            const login = envReader.getValue("@testData.login.valid.username");
-            const password = envReader.getValue("@testData.login.valid.password");
+            const login = getEnvValue("@testData.login.valid.username");
+            const password = getEnvValue("@testData.login.valid.password");
             const signInForm = new SignInForm();
             signInForm.typeLogin(login);
             signInForm.typePassword(password);
@@ -44,8 +44,8 @@ describe('Draft message', function() {
     });
 
     it('Draft message', async function () {
-        logger.logStep('Step. Navigate to draft and check letter', () => {
-            new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
+        logger.logStep('Step. Navigate to draft and check letter', async () => {
+            await new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
             const lettersForm = new LettersForm();
             expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
             lettersForm.clickLetter(letter);
@@ -56,6 +56,7 @@ describe('Draft message', function() {
         logger.logStep('Step. Check compose letter data', async () => {
             const composeForm = new ComposeForm();
             expect(await composeForm.getMessageText()).toEqual(letter.message);
+            expect(composeForm.getSubject()).toEqual(letter.subject);
             browser.sleep(3000);
         });
     });

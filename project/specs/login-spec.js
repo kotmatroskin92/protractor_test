@@ -2,7 +2,7 @@
 const MainPage = require('../pages/mainPage');
 const SignInForm = require('../forms/signInForm');
 const addSuiteHooks = require('../../framework/hooks').addSuiteHooks;
-const envReader = require('../../framework/helpers/envReader');
+const getEnvValue = require('../../framework/helpers/envReader');
 const logger = require("../../framework/logger");
 
 
@@ -13,8 +13,8 @@ describe('Invalid password check', function() {
 
     function checkInvalidLogin(loginPath, passPath) {
 
-        let login = envReader.getValue(loginPath);
-        let password = envReader.getValue(passPath);
+        let login = getEnvValue(loginPath);
+        let password = getEnvValue(passPath);
 
         describe(`With login: ${login} and password: ${password}`, function() {
 
