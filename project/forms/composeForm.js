@@ -7,6 +7,7 @@ class ComposeForm extends BasePage{
     constructor() {
         super(element(by.id("b-compose")), "Compose letter form");
         this.txbTo = element(by.xpath("//textarea[@data-original-name='To']"));
+        this.lblTo = element(by.id("compose_to"));
         this.txbSubject = element(by.xpath("//input[@name='Subject']"));
         this.txbMessage = element(by.id("tinymce"));
         this.btnSaveDraft = element(by.xpath("//div[contains(@id,'toolbar')]//div[@data-name='saveDraft']"));
@@ -28,12 +29,6 @@ class ComposeForm extends BasePage{
         }.bind(this))
     }
 
-    // async getMessageText() {
-    //     return await pageHelper.doActionInFrame(this.iFrameComposeEditor, function () {
-    //         return this.txbMessage.getText();
-    //     }.bind(this));
-    // }
-
     async getMessageText() {
         await pageHelper.switchToFrameByElement(this.iFrameComposeEditor);
         const text = await this.txbMessage.getText();
@@ -43,6 +38,10 @@ class ComposeForm extends BasePage{
 
     async getSubject() {
         return await this.txbSubject.getAttribute('value')
+    }
+
+    async getToEmail() {
+        return await this.lblTo.getAttribute('value')
     }
 
     typeLetter(letter) {

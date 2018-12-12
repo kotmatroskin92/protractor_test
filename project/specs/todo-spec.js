@@ -57,7 +57,7 @@ describe('Draft message', function() {
             const composeForm = new ComposeForm();
             expect(await composeForm.getMessageText()).toEqual(letter.message);
             expect(composeForm.getSubject()).toEqual(letter.subject);
-            browser.sleep(3000);
+            expect(composeForm.getToEmail()).toEqual(letter.toEmail);
         });
     });
 });
