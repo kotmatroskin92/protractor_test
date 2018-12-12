@@ -8,7 +8,7 @@ class InboxPage extends BasePage{
     }
 
     clickComposeLetter() {
-        this.btnCompose.click()
+        return this.btnCompose.click()
     }
 }
 

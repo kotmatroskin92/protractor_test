@@ -17,11 +17,11 @@ class SignInForm extends BasePage{
     }
 
     typeLogin(login) {
-        this.txdLogin.sendKeys(login);
+        return this.txdLogin.sendKeys(login);
     }
 
     clickSubmit() {
-        this.btnSubmit.click();
+        return this.btnSubmit.click();
     }
 
     isErrorHintDisplayed() {

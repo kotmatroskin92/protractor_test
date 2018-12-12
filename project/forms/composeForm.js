@@ -16,11 +16,11 @@ class ComposeForm extends BasePage{
     }
 
     typeInTo(email) {
-        this.txbTo.sendKeys(email);
+        return this.txbTo.sendKeys(email);
     }
 
     typeInSubject(subject) {
-        this.txbSubject.clear().sendKeys(subject);
+        return this.txbSubject.clear().sendKeys(subject);
      }
 
     typeInMessage(text) {
@@ -45,15 +45,18 @@ class ComposeForm extends BasePage{
         return val.replace(',', '');
     }
 
-    typeLetter(letter) {
-        this.typeInTo(letter.toEmail);
-        this.typeInSubject(letter.subject);
+    async typeLetter(letter) {
+        await this.typeInTo(letter.toEmail);
+        await this.typeInSubject(letter.subject);
         this.typeInMessage(letter.message);
     }
 
     saveDraft() {
         this.btnSaveDraft.click();
-        pageHelper.waitForIsVisible(this.lblSaveStatus)
+    }
+
+    isLetterSaveToDraft() {
+        return pageHelper.waitForIsVisible(this.lblSaveStatus)
     }
 }
 
