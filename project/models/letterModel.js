@@ -8,9 +8,13 @@ class LetterModel {
         this.message = 'Rnd test message';
     }
 
-    setRndMessage() {
+    setRndData() {
         this.subject += getRndString();
         this.message += getRndString();
+    }
+
+    getToEmailNoDelimiter() {
+        return this.toEmail.replace(',', '');
     }
 }
 

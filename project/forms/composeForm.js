@@ -41,7 +41,8 @@ class ComposeForm extends BasePage{
     }
 
     async getToEmail() {
-        return await this.lblTo.getAttribute('value')
+        const val = await this.lblTo.getAttribute('value');
+        return val.replace(',', '');
     }
 
     typeLetter(letter) {

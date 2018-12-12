@@ -36,7 +36,7 @@ describe('Draft message', function() {
         logger.logStep('Step. Compose and fill letter', () => {
             const inboxPage = new InboxPage();
             inboxPage.clickComposeLetter();
-            letter.setRndMessage();
+            letter.setRndData();
             const composeForm = new ComposeForm();
             composeForm.typeLetter(letter);
             composeForm.saveDraft();
@@ -57,7 +57,7 @@ describe('Draft message', function() {
             const composeForm = new ComposeForm();
             expect(await composeForm.getMessageText()).toEqual(letter.message);
             expect(composeForm.getSubject()).toEqual(letter.subject);
-            expect(composeForm.getToEmail()).toEqual(letter.toEmail);
+            expect(composeForm.getToEmail()).toEqual(letter.getToEmailNoDelimiter());
         });
     });
 });
