@@ -7,7 +7,7 @@
     "project/specs": "project/specs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "protractor conf.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "allure-commandline": "^2.5.0",
     "btoa": "^1.2.1",
     "jasmine-allure-reporter": "^1.0.2",
-    "winston": "^3.1.0"
+    "winston": "^3.1.0",
+    "protractor": "^5.4.1"
   }
 }
