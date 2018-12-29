@@ -1,0 +1,10 @@
+{
+  "browserName": "chrome",
+  "conditionTime": 10000,
+  "pageLoadTime": 30000,
+  "jasmineTimeout": 180000,
+  "implicitlyWait": 20000,
+  "isWaitForAngular": false,
+  "env": "prod",
+  "seleniumAddress": "http://localhost:4444/wd/hub"
+}
