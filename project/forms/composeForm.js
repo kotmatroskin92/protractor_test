@@ -28,14 +28,14 @@ class ComposeForm extends BasePage{
         }.bind(this))
     }
 
-    async getMessageText() {
-        return await pageHelper.doActionInFrame(this.iFrameComposeEditor, function() {
+    getMessageText() {
+        return pageHelper.doActionInFrame(this.iFrameComposeEditor, function() {
             return this.txbMessage.getText();
         }.bind(this));
     }
 
-    async getSubject() {
-        return await this.txbSubject.getAttribute('value')
+    getSubject() {
+        return this.txbSubject.getAttribute('value')
     }
 
     async getToEmail() {

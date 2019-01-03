@@ -16,13 +16,14 @@ let addScreenShots = new function () {
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: config.seleniumAddress,
-    specs: ['./project/specs/todo-spec.js'],
+    specs: ['./project/specs/todo-spec.js', './project/specs/login-spec.js'],
     capabilities: {
         browserName: config.browserName,
         chromeOptions: {
             args: [
                 '--disable-popup-blocking',
-                'disable-infobars',
+                '--disable-infobars',
+                '--incognito',
             ]
         },
     },

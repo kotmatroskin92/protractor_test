@@ -10,7 +10,7 @@ class LettersForm extends BasePage{
 
 
     getLetterElement(letter) {
-        return element(by.xpath(`//a[contains(@title, '${letter.toEmail}') and @data-subject='${letter.subject}']`));
+        return element(by.xpath(`//*[@id='LEGO']//a[contains(., '${letter.toEmail}') and @data-subject='${letter.subject}']`));
     }
 
     isLetterDisplayed(letter) {

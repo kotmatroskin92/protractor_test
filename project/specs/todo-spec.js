@@ -45,9 +45,9 @@ describe('Draft message', function() {
     });
 
     it('Save to draft message', async function () {
-        logger.logStep('Step3. Save to draft', () => {
-            composeForm.saveDraft();
-            expect(composeForm.isLetterSaveToDraft()).toEqual(true);
+        logger.logStep('Step3. Save to draft', async () => {
+            await composeForm.saveDraft();
+            await expect(composeForm.isLetterSaveToDraft()).toEqual(true);
         });
     });
 
@@ -55,17 +55,17 @@ describe('Draft message', function() {
         logger.logStep('Step4. Navigate to draft and assert letter is exist', async () => {
             await new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
             lettersForm = new LettersForm();
-            expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
+            await expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
         });
     });
 
     it('Check message', async function () {
         logger.logStep('Step5. Check compose letter data', async () => {
-            lettersForm.clickLetter(letter);
+            await lettersForm.clickLetter(letter);
             const composeForm = new ComposeForm();
-            expect(await composeForm.getMessageText()).toEqual(letter.message);
-            expect(composeForm.getSubject()).toEqual(letter.subject);
-            expect(composeForm.getToEmail()).toEqual(letter.getToEmailNoDelimiter());
+            await expect(composeForm.getMessageText()).toEqual(letter.message);
+            await expect(composeForm.getSubject()).toEqual(letter.subject);
+            await expect(composeForm.getToEmail()).toEqual(letter.getToEmailNoDelimiter());
         });
     });
 });
