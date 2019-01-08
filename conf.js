@@ -22,7 +22,8 @@ exports.config = {
         chromeOptions: {
             args: [
                 '--disable-popup-blocking',
-                'disable-infobars',
+                '--disable-infobars',
+                '--incognito',
             ]
         },
     },
