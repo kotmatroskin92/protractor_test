@@ -34,5 +34,21 @@ exports.config = {
     onPrepare: () => {
         jasmine.getEnv().addReporter(new AllureReporter());
         jasmine.getEnv().addReporter(addScreenShots);
-    }
+        //skip tests after first fail
+        let specs = [];
+        let orgSpecFilter = jasmine.getEnv().specFilter;
+        jasmine.getEnv().specFilter = function (spec) {
+            specs.push(spec);
+            return orgSpecFilter(spec);
+        };
+        jasmine.getEnv().addReporter(new function () {
+            this.specDone = function (result) {
+                if (result.failedExpectations.length > 0) {
+                    specs.forEach(function (spec) {
+                        spec.disable()
+                    });
+                }
+            };
+        });
+    },
 };
