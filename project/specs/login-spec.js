@@ -29,7 +29,7 @@ describe('Invalid password check', function() {
                     signInForm.typeLogin(login);
                     signInForm.typePassword(password);
                     signInForm.clickSubmit();
-                    expect(signInForm.isErrorHintDisplayed()).toEqual(true);
+                    expect(signInForm.isErrorHintDisplayed()).toBeTruthy();
                 });
             });
         });

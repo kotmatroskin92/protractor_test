@@ -47,7 +47,7 @@ describe('Draft message', function() {
     it('Save to draft message', async function () {
         logger.logStep('Step3. Save to draft', async () => {
             await composeForm.saveDraft();
-            await expect(composeForm.isLetterSaveToDraft()).toEqual(true);
+            await expect(composeForm.isLetterSaveToDraft()).toBeTruthy();
         });
     });
 
@@ -55,7 +55,7 @@ describe('Draft message', function() {
         logger.logStep('Step4. Navigate to draft and assert letter is exist', async () => {
             await new FolderNavigateForm().navigateTo(navFolderEnum.DRAFT);
             lettersForm = new LettersForm();
-            await expect(lettersForm.isLetterDisplayed(letter)).toEqual(true);
+            await expect(lettersForm.isLetterDisplayed(letter)).toBeTruthy();
         });
     });
 
